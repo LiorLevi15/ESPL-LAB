@@ -1,0 +1,25 @@
+# All Targets
+
+all: count
+
+# Dependancies:
+
+count: start.o task1b.o util.o
+	ld -m elf_i386 start.o task1b.o util.o -o count
+
+start.o: start.s
+	nasm -f elf32 start.s -o start.o
+
+task1b.o: task1b.c
+	gcc -m32 -Wall -ansi -c -nostdlib -fno-stack-protector task1b.c -o task1b.o
+
+util.o: util.c
+	gcc -m32 -Wall -ansi -c -nostdlib -fno-stack-protector util.c -o util.o
+
+# Clean
+
+.PHONY: clean
+
+clean:
+	rm -f *.o count
+

@@ -1,0 +1,8 @@
+awk '{print $0}' mark.txt
+awk -F " " '{print $3}' mark.txt
+awk -F " " '{print $3 "\t" $4}' mark.txt
+awk '/a/' mark.txt
+awk '$2 ~ /a/ {print $2 "\t" $4}'  mark.txt
+awk -F " " '{print $1 " " $4 " " $3 " " $2}' mark.txt
+awk '{count[$3]++} END {print "Count = "count["English"]} ' mark.txt
+awk '{if ($4>87) print $0}' mark.txt

@@ -1,0 +1,13 @@
+# All
+all: task2b
+
+task2b: task2b.o
+	ld -m elf_i386 task2b.o -o task2b
+	
+task2b.o: task2b.s
+	nasm -f elf32 -o task2b.o task2b.s
+		
+.PHONY: clean
+
+clean:
+	rm -f *.o task2b

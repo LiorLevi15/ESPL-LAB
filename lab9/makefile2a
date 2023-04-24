@@ -1,0 +1,18 @@
+# All Targets
+
+all: task2a
+
+# Dependancies
+
+task2a: task2a.o
+	ld -m elf_i386 task2a.o -o task2a
+
+task2a.o: task2a.s
+	nasm -f elf task2a.s 
+
+#Clean
+.PHONY: clean
+
+clean:
+	rm -f *.o task2a
+	

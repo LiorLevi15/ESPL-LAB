@@ -1,0 +1,8 @@
+all: myELF 
+myELF:task2.c
+	gcc -g -m32 -fno-pie -c -o task2.o task2.c
+	gcc -g -m32 task2.o -o myELF
+	rm task2.o
+.PHONY: clean
+clean:
+	rm -rf ./*.o myELF
